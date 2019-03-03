@@ -1,0 +1,46 @@
+#include <iostream>
+#include<sstream>
+#include<vector>
+#include<string>
+#include<math.h>
+using namespace std;
+
+int main() {
+  string creditcard;
+  int totalscore;
+  int totalscore1;
+ cout<<"what is your credit card:\n";
+  cin >>creditcard;
+  vector<int>search;
+  
+  for(int i=0;i<creditcard.length();i++){
+    search.push_back(int(creditcard[i]-'0') );//ASCII
+    if(i%2==0){
+      totalscore+=search[i]*2;
+      if(search[i]*2>9){
+         totalscore=totalscore-9;
+      }
+    }
+    else {
+      totalscore1+=search[i]-search[14];    }  
+  }
+  int sum=(totalscore+totalscore1)%10;
+  if(sum==search[14]==0){
+    cout<<"its real ";
+  }
+  else if(10-sum==search[14]){
+    cout<<"its real ";
+  }
+  else{
+    cout<<"its fake ";
+  }
+  
+  if(sum)
+  if (search[0]==4){
+    cout<<"visa card";
+  }
+  else if(search[0]==5&&search[1]>=1&&search[1]<=5){
+    cout<<"master card";
+  }
+
+}
